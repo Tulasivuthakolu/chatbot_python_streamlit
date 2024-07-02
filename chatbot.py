@@ -1,4 +1,4 @@
-from openai import OpenAI 
+import openai
 import streamlit as st
 with st.sidebar:
     openai_api_key=st.text_input("OpenAI API Key",key="chatbot_api_key",type="password")
@@ -19,3 +19,9 @@ if prompt := st.chat_input():
     msg=response.choices[0].message.content 
     st.session_state.messages.append({"role": "assistant", "content": msg})
     st.chat_message("assistant").write(msg)
+
+    """
+    pip install streamlit
+    pip install openai
+    streamlit run chatbot.py
+    """
